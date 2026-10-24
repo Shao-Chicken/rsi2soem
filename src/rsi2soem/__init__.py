@@ -1,16 +1,16 @@
-"""sub2rsi - RSI RMP-style motion-control API over a USB-serial SOEM master.
+"""rsi2soem - RSI RMP-style motion-control API over a USB-serial SOEM master.
 
 Hardware chain:
     PC (this package) --CH340 USB-serial--> STM32H743 SOEM EtherCAT master
         --EtherCAT--> MOONS' AMA step-servo drive(s) (CiA402, CSP mode)
 
 Class mapping:
-    RSI::RapidCode::MotionController  ->  sub2rsi.MotionController
-    RSI::RapidCode::Axis              ->  sub2rsi.Axis
-    RSI::RapidCode::MultiAxis         ->  sub2rsi.MultiAxis
-    RSI::RapidCode::NetworkNode       ->  sub2rsi.NetworkNode
-    RSI::RapidCode::RsiError          ->  sub2rsi.RsiError (and subclasses)
-    RSIState                          ->  sub2rsi.CiaState
+    RSI::RapidCode::MotionController  ->  rsi2soem.MotionController
+    RSI::RapidCode::Axis              ->  rsi2soem.Axis
+    RSI::RapidCode::MultiAxis         ->  rsi2soem.MultiAxis
+    RSI::RapidCode::NetworkNode       ->  rsi2soem.NetworkNode
+    RSI::RapidCode::RsiError          ->  rsi2soem.RsiError (and subclasses)
+    RSIState                          ->  rsi2soem.CiaState
 
 Coverage policy:
     The core single-axis surface is fully implemented and tested on real

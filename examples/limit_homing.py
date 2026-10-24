@@ -12,7 +12,7 @@ Usage: python limit_homing.py COM12 Z
 import sys
 import time
 
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 CRAWL_MM_S = 0.5          # gentle: 0.5 mm/s
 POLL_S = 0.3

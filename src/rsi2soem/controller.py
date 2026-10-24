@@ -235,7 +235,7 @@ class MotionController(object):
 
     def version_get(self):
         """This API library's version (RMP VersionGet)."""
-        return "sub2rsi %s (RMP-compatible)" % __version__
+        return "rsi2soem %s (RMP-compatible)" % __version__
 
     VersionGet = version_get
 

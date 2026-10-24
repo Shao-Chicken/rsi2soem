@@ -6,7 +6,7 @@ Usage: python quickstart.py [COM12]
 
 import sys
 
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 port = sys.argv[1] if len(sys.argv) > 1 else None   # None = auto-detect
 

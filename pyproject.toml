@@ -3,13 +3,13 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sub2rsi"
+name = "rsi2soem"
 version = "0.1.0"
 description = "RSI RMP-style Python motion-control API over a USB-serial SOEM EtherCAT master (STM32)"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "sub2rsi contributors" }]
+authors = [{ name = "rsi2soem contributors" }]
 keywords = ["EtherCAT", "SOEM", "CiA402", "motion control", "RSI RMP",
             "RapidCode", "stepper", "servo", "STM32", "CSP"]
 classifiers = [
@@ -28,15 +28,15 @@ dependencies = ["pyserial>=3.4"]
 test = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/your-org/sub2rsi"
-Documentation = "https://github.com/your-org/sub2rsi/tree/main/docs"
-Source = "https://github.com/your-org/sub2rsi"
+Homepage = "https://github.com/Shao-Chicken/rsi2soem"
+Documentation = "https://github.com/Shao-Chicken/rsi2soem/tree/main/docs"
+Source = "https://github.com/Shao-Chicken/rsi2soem"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-sub2rsi = ["py.typed"]
+rsi2soem = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

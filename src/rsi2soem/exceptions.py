@@ -41,7 +41,7 @@ class AxisNotPresentError(RsiError):
 
 
 class RsiNotImplementedError(RsiError, NotImplementedError):
-    """This RSI feature is not supported by the sub2rsi firmware/hardware."""
+    """This RSI feature is not supported by the rsi2soem firmware/hardware."""
 
 
 def _ni(name, reason):

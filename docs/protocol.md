@@ -1,4 +1,4 @@
-# sub2rsi wire protocol / 串口线协议
+# rsi2soem wire protocol / 串口线协议
 
 The STM32 master speaks a plain ASCII line protocol over the CH340
 USB-serial link: **115200 8N1, one command per line, `\n`-terminated**.

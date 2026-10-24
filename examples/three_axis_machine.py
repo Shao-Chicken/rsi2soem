@@ -10,7 +10,7 @@ Usage: python three_axis_machine.py [COM12]
 
 import sys
 
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 # axis index -> (name, (soft_low, soft_high)) in user units (default: mm)
 MACHINE_AXES = {

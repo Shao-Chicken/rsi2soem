@@ -1,4 +1,4 @@
-# sub2rsi API Reference
+# rsi2soem API Reference
 
 Complete method reference, mapped to the RSI RMP / RapidCode surface.
 Unless noted otherwise, positions and velocities are in **user units**
@@ -9,7 +9,7 @@ All methods exist with their PascalCase RMP names; common Axis methods also
 carry snake_case aliases (`ax.move_absolute(...)` ≡ `ax.MoveTrapezoidal(...)`).
 
 ```python
-from sub2rsi import (MotionController, Axis, MultiAxis, NetworkNode,
+from rsi2soem import (MotionController, Axis, MultiAxis, NetworkNode,
                      CiaState, RSIOperationMode, RSIEventType, RSIAction,
                      RsiError, SoftLimitError, NotEnabledError, FaultError,
                      MotionTimeoutError, CommunicationError, NetworkError,

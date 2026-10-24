@@ -2,8 +2,8 @@
 
 import pytest
 
-import sub2rsi as s2r
-from sub2rsi import (AxisNotPresentError, CiaState, CommunicationError,
+import rsi2soem as s2r
+from rsi2soem import (AxisNotPresentError, CiaState, CommunicationError,
                      MotionTimeoutError, NotEnabledError, RsiError,
                      RsiNotImplementedError, RSIOperationMode, SoftLimitError)
 
@@ -45,7 +45,7 @@ class TestController:
             mc_generic.AxisGet("Z")   # no names configured
 
     def test_version_strings(self, mc):
-        assert "sub2rsi" in mc.VersionGet()
+        assert "rsi2soem" in mc.VersionGet()
         assert "ecat" in mc.FirmwareVersionGet()
         assert mc.SampleRateGet() == 1000.0
 
@@ -250,7 +250,7 @@ class TestStatus:
         assert repr(st)
 
     def test_status_bit_get(self, mc):
-        from sub2rsi import RSIEventType
+        from rsi2soem import RSIEventType
         ax = mc.AxisGet(0)
         ax.AmpEnableSet(True)
         assert ax.StatusBitGet(RSIEventType.ENABLED) is True

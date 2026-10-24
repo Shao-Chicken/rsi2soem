@@ -1,8 +1,8 @@
-# sub2rsi
+# rsi2soem
 
 **纯 Python 的 RSI RMP 风格运动控制库——通过 USB 串口 SOEM 主站控制 EtherCAT 机台。**
 
-`sub2rsi`（**S**OEM **U**SB **B**ridge **to** **RSI**）让 PC 在**没有 EtherCAT 主站卡、
+`rsi2soem`（RSI 风格 API，由 SOEM 主站驱动）让 PC 在**没有 EtherCAT 主站卡、
 没有实时操作系统**的情况下控制 CiA402 伺服/步进驱动器：一块廉价的 STM32H743 开发板
 运行开源 [SOEM](https://github.com/OpenEtherCATsociety/SOEM) 主站协议栈，
 通过 CH340 USB 转串口暴露一套 ASCII 行协议；本库把这套协议包装成对 RSI RMP /
@@ -24,7 +24,7 @@ RapidCode API 的忠实复刻（`MotionController` / `Axis` / `MultiAxis` / `Net
 ## 安装
 
 ```bash
-pip install sub2rsi          # PyPI（发布后）
+pip install rsi2soem          # PyPI（发布后）
 pip install .                # 本仓库克隆
 pip install .[test]          # 含测试依赖
 ```
@@ -32,7 +32,7 @@ pip install .[test]          # 含测试依赖
 ## 一分钟上手
 
 ```python
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 AXES = {0: ("Z", (0.0, 91.5)),   # 轴名 + 软限位 (mm)
         1: ("X", (0.0, 110.0)),

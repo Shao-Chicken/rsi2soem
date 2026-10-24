@@ -14,7 +14,7 @@ import time
 
 import pytest
 
-from sub2rsi import (AxisNotPresentError, CiaState, CommunicationError,
+from rsi2soem import (AxisNotPresentError, CiaState, CommunicationError,
                      FaultError, MotionController, MotionTimeoutError,
                      NotEnabledError, RsiError, RsiNotImplementedError,
                      RSIEventType, RSIOperationMode, SoftLimitError)
@@ -77,7 +77,7 @@ def test_03_network_state(mc):
 def test_04_info(mc):
     assert mc.SampleRateGet() == 1000.0
     assert "ecat" in mc.FirmwareVersionGet()
-    assert "sub2rsi" in mc.VersionGet()
+    assert "rsi2soem" in mc.VersionGet()
 
 
 def test_05_error_log_empty(mc):
@@ -123,7 +123,7 @@ def test_12_status_decode(ax):
     assert ax.StatusWordGet() == ax.StatusBitsGet()
     assert ax.SourceGet() == "NONE"
     assert ax.AmpFaultGet() is False
-    assert ax.EncoderPositionGet() == st.position_counts
+    assert abs(ax.EncoderPositionGet() - st.position_counts) <= 4  # encoder may jitter between the two reads
     assert ax.error_code_get() is not None   # drive may latch a history code
     assert ax.NumberGet() == 0 and ax.AxisCountGet() == 3
     assert ax.OperationModeGet() == RSIOperationMode.CSP

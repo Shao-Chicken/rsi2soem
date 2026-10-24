@@ -1,4 +1,4 @@
-# sub2rsi — RMP 风格运动控制 API 完整文档（v0.1）
+# rsi2soem — RMP 风格运动控制 API 完整文档（v0.1）
 
 > 对应英文版：[api-reference.md](api-reference.md)。
 > 本文档以"参考机台"（MOONS' 一拖四步进伺服 + STM32H743 SOEM 主站）为实测背景，
@@ -24,7 +24,7 @@
 ```text
 ┌─────────────────────────────┐
 │  PC 上位机 (Windows/Linux)   │
-│  Python → sub2rsi 包        │   本 API, 对应 RMP 的 RapidCode 层
+│  Python → rsi2soem 包        │   本 API, 对应 RMP 的 RapidCode 层
 └──────────────┬──────────────┘
                │ CH340 USB 转串口  115200 8N1
                ▼
@@ -177,11 +177,11 @@ ax.software_limits_set(0.0, 实测行程mm - 0.4)
 ## 4. 安装与 30 秒上手
 
 ```bash
-pip install sub2rsi          # 或 pip install . （仓库克隆）
+pip install rsi2soem          # 或 pip install . （仓库克隆）
 ```
 
 ```python
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 AXES = {0: ("Z", (0.0, 91.5)), 1: ("X", (0.0, 110.0)), 2: ("Y", (0.0, 111.0))}
 
@@ -337,9 +337,9 @@ node.SDOWrite(0x6081, 0, 4, 10000)      # 写 profile velocity
 
 | 机制 | 位置 | 行为 |
 |---|---|---|
-| 上位机软限位 | sub2rsi 库 | 越限指令**根本不下发**，抛 `SoftLimitError` |
-| 速度上限 | sub2rsi 库 | 默认 5 mm/s，超过拒绝 |
-| 未使能保护 | sub2rsi 库 | 未使能发运动抛 `NotEnabledError` |
+| 上位机软限位 | rsi2soem 库 | 越限指令**根本不下发**，抛 `SoftLimitError` |
+| 速度上限 | rsi2soem 库 | 默认 5 mm/s，超过拒绝 |
+| 未使能保护 | rsi2soem 库 | 未使能发运动抛 `NotEnabledError` |
 | 固件跟随误差看门狗 | STM32 固件 | 目标与实际差 >20000 counts 持续 0.5 s → 钳住目标流并停运动（顶墙/卡死的最后防线） |
 | 故障自动恢复 | STM32 固件 | 驱动器 fault → 复位后自动重建链路；`REINIT` 命令可随时手动重建（MCU 复位，~5 s 回 OP） |
 

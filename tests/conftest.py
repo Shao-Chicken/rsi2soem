@@ -12,7 +12,7 @@ Protocol recap (115200 8N1, '\n'-terminated ASCII):
 
 import pytest
 
-from sub2rsi import MotionController
+from rsi2soem import MotionController
 
 
 def pytest_addoption(parser):
