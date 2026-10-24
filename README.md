@@ -15,7 +15,7 @@ for RSI hardware ports over with minimal changes.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org)
-[![Tests](https://img.shields.io/badge/tests-43%20unit%20%2B%2030%20hardware-brightgreen.svg)](#testing)
+[![CI](https://github.com/Shao-Chicken/rsi2soem/actions/workflows/ci.yml/badge.svg)](https://github.com/Shao-Chicken/rsi2soem/actions/workflows/ci.yml)
 
 [中文文档](README_zh.md)
 

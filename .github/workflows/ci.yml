@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  unit-tests:
+    name: unit tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.8", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package with test dependencies
+        run: pip install .[test]
+
+      - name: Run unit tests (fake serial link, no hardware)
+        run: pytest tests/test_units.py -q
+
+      - name: Verify hardware tests skip cleanly without --ecat-port
+        run: pytest tests/test_hardware.py -q
+
+  import-smoke:
+    name: import smoke test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install and import
+        run: |
+          pip install .
+          python -c "import rsi2soem; print('rsi2soem', rsi2soem.__version__)"
